@@ -13,12 +13,14 @@ def run():
   password=sys.argv[2]
   for trytime in range(10):
     print('Trial '+str(trytime+1))
+    ##conn=httplib.HTTPConnection('127.0.0.1:8888')
     conn=httplib.HTTPConnection('kq.neusoft.com')
     try:
       myheaders={'Accept':'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
-        'Accept-Encoding':'gzip,deflate,sdch',
+        'Accept-Encoding':'gzip, deflate, sdch',
         'Accept-Language':'zh-CN,zh;q=0.8',
         'User-Agent':'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/36.0.1985.125 Safari/537.36',
+        'Upgrade-Insecure-Requests':'1',
         'Connection':'keep-alive'}
       conn.request('GET','/',headers=myheaders)
       response=conn.getresponse()
@@ -38,13 +40,14 @@ def run():
       mydata=urllib.urlencode(mydata)
       myheaders={'Cache-Control':'max-age=0',
         'Accept':'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
-        'Accept-Encoding':'gzip,deflate,sdch',
+        'Accept-Encoding':'gzip, deflate',
         'Accept-Language':'zh-CN,zh;q=0.8',
         'User-Agent':'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/36.0.1985.125 Safari/537.36',
-        'cookie':cookie,
+        'Cookie':cookie,
         'Content-Type':'application/x-www-form-urlencoded',
         'Referer':'http://kq.neusoft.com/',
         'Origin':'http://kq.neusoft.com',
+        'Upgrade-Insecure-Requests':'1',
         'Connection':'keep-alive'}
       conn.request('POST','/login.jsp',body=mydata,headers=myheaders)
       response=conn.getresponse()
@@ -52,11 +55,12 @@ def run():
 
       myheaders={'Cache-Control':'max-age=0',
         'Accept':'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
-        'Accept-Encoding':'gzip,deflate,sdch',
+        'Accept-Encoding':'gzip, deflate, sdch',
         'Accept-Language':'zh-CN,zh;q=0.8',
         'User-Agent':'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/36.0.1985.125 Safari/537.36',
-        'cookie':cookie,
+        'Cookie':cookie,
         'Referer':'http://kq.neusoft.com/',
+        'Upgrade-Insecure-Requests':'1',
         'Connection':'keep-alive'}
       conn.request('GET','/attendance.jsp',headers=myheaders)
       response=conn.getresponse()
@@ -80,13 +84,14 @@ def run():
       mydata=urllib.urlencode(mydata)
       myheaders={'Cache-Control':'max-age=0',
         'Accept':'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
-        'Accept-Encoding':'gzip,deflate,sdch',
+        'Accept-Encoding':'gzip, deflate',
         'Accept-Language':'zh-CN,zh;q=0.8',
         'User-Agent':'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/36.0.1985.125 Safari/537.36',
-        'cookie':cookie,
+        'Cookie':cookie,
         'Content-Type':'application/x-www-form-urlencoded',
         'Referer':'http://kq.neusoft.com/attendance.jsp',
         'Origin':'http://kq.neusoft.com',
+        'Upgrade-Insecure-Requests':'1',
         'Connection':'keep-alive'}
       conn.request('POST','/record.jsp',body=mydata,headers=myheaders)
       response=conn.getresponse()
@@ -94,11 +99,12 @@ def run():
 
       myheaders={'Cache-Control':'max-age=0',
         'Accept':'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
-        'Accept-Encoding':'gzip,deflate,sdch',
+        'Accept-Encoding':'gzip, deflate, sdch',
         'Accept-Language':'zh-CN,zh;q=0.8',
         'User-Agent':'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/36.0.1985.125 Safari/537.36',
-        'cookie':cookie,
+        'Cookie':cookie,
         'Referer':'http://kq.neusoft.com/attendance.jsp',
+        'Upgrade-Insecure-Requests':'1',
         'Connection':'keep-alive'}
       conn.request('GET','/attendance.jsp',headers=myheaders)
       response=conn.getresponse()
